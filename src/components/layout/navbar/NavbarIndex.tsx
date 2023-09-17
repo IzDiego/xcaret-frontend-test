@@ -5,6 +5,7 @@ import LanguageSelector from "./LangSelect";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { isMobile } from "react-device-detect";
+import Link from "next/link";
 
 const Navbar = () => {
   const localizedLocales = useSelector(selectLocalizedLocales);
@@ -62,9 +63,9 @@ const Navbar = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           <div>
-            <a href="#" className="text-2xl font-bold">
+            <Link href="/" className="text-2xl font-bold">
               <img src={localizedLocales?.navbar?.logo}></img>
-            </a>
+            </Link>
           </div>
           {isMobile ? (
             <div>

@@ -18,7 +18,7 @@ const LegalsSection: React.FC<LegalsProps> = ({ legals }) => {
     <section
       className={`bg-neutral-200 text-neutral-700 ${isMobile ? "" : "-mx-8"}`}
     >
-      <div className="mx-auto max-w-screen-lg px-8 text-center">
+      <div className="mx-auto max-w-screen-lg px-8 text-center p-4">
         {convertBreaks(legals)}
       </div>
     </section>

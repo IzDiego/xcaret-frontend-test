@@ -79,7 +79,7 @@ const CarouselCard: React.FC<ICarouselCardProps> = ({
             <button
               key={index}
               onClick={() => handleClick(title)}
-              className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 transition duration-300 hover:bg-blue-300"
+              className="text-xl mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700 transition duration-300 hover:bg-blue-300"
             >
               {tag}
             </button>

@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>EXPERIENCIAS XCARET</title>
         <meta name="description" content="EXPERIENCIAS XCARET TEST DIEGO" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://www.grupoxcaret.com/es/wp-content/uploads/2019/03/favicon-1.png" />
       </Head>
       <Providers>
         <Component {...pageProps} />
