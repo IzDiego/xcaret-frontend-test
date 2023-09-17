@@ -45,9 +45,9 @@ const CarouselWithText: React.FC<CarouselProps> = ({
   if (isMobile) {
     return (
       <div className="flex flex-col items-center space-y-4">
-        <div className="w-full p-4">
+        <div className="w-full p-4 -mb-8">
           <div className={`relative flex-1 p-4`}>
-            <div className="relative h-[500px] w-full overflow-hidden rounded-lg">
+            <div className="relative h-[380px] w-full overflow-hidden rounded-lg">
               <div
                 className="flex transition-transform duration-500 ease-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -65,7 +65,7 @@ const CarouselWithText: React.FC<CarouselProps> = ({
                 ))}
               </div>
             </div>
-            <div className="absolute inset-0 flex items-center justify-between p-4">
+            <div className={`absolute inset-0 flex items-center justify-between p-4`}>
               <button
                 onClick={goPrev}
                 className="absolute left-0 top-1/2 z-10 transform rounded-full bg-black bg-opacity-50 p-2 transition-transform duration-300 hover:scale-105"
@@ -94,13 +94,13 @@ const CarouselWithText: React.FC<CarouselProps> = ({
             </div>
           </div>
         </div>
-        <div className="w-full p-6">
+        <div className="w-full p-6 px-8">
           <CarouselCard
             imageSrc={imagePromo}
             title={title}
             description={text}
             action={[buttonBook]}
-            justify="center" // on mobile it's always centered
+            justify="center"
           />
         </div>
       </div>

@@ -114,8 +114,8 @@ const ModalPurchase: React.FC<IModalPurchaseProps> = ({
   };
   return (
     <div data-te-modal-dialog-ref className={modalClassName()}>
-      <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-lg border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
-        <div className="bg-info-600 flex flex-shrink-0 items-center justify-between rounded-t-md p-4 dark:border-b dark:border-neutral-500 dark:bg-transparent">
+      <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-lg border-none bg-white bg-clip-padding text-current shadow-lg outline-none">
+        <div className="bg-info-600 flex flex-shrink-0 items-center justify-between rounded-t-md p-4">
           <h5
             className="text-xl font-medium leading-normal text-black"
             id="rightTopModalLabel"
@@ -148,7 +148,7 @@ const ModalPurchase: React.FC<IModalPurchaseProps> = ({
             </div>
           </div>
         </div>
-        <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+        <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4">
           <button
             onClick={handleContinue}
             className="focus:shadow-outline-blue rounded-md bg-blue-600 px-6 py-2 text-white transition duration-150 ease-in-out hover:bg-blue-500 focus:border-blue-900 focus:outline-none active:bg-blue-800"

@@ -1,4 +1,6 @@
 import React from "react";
+import { isMobile } from "react-device-detect";
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import {
   selectLanguage,
@@ -23,12 +25,12 @@ const Prefooter: React.FC = () => {
       en: "CONTACT US",
     },
   };
-  if(!localizedLocales){
-    return <div>Loading...</div>
+  if (!localizedLocales) {
+    return <div>Loading...</div>;
   }
 
   return (
-    <div className="max-w-screen-lg mx-auto px-8 bg-gray-900 p-8 text-white">
+    <div className="mx-auto max-w-screen-lg bg-gray-900 p-8 px-8 text-white">
       <div className="container mx-auto">
         <div className="mb-6 flex justify-between border-b pb-2">
           <h2 className="text-xl font-bold">
@@ -48,21 +50,39 @@ const Prefooter: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Facebook
+              {isMobile ? (
+                <FaFacebook />
+              ) : (
+                <span className="flex align-middle ">
+                  <FaFacebook size={20} className="mx-2" /> {"Facebook"}
+                </span>
+              )}
             </a>
             <a
               href={localizedLocales?.prefooter?.social?.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Instagram
+              {isMobile ? (
+                <FaInstagram />
+              ) : (
+                <span className="flex align-middle ">
+                  <FaInstagram size={20} className="mx-2" /> {"Instagram"}
+                </span>
+              )}
             </a>
             <a
               href={localizedLocales?.prefooter?.social?.twitterUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Twitter
+              {isMobile ? (
+                <FaTwitter />
+              ) : (
+                <span className="flex align-middle ">
+                  <FaTwitter size={20} className="mx-2" /> {"Twitter"}
+                </span>
+              )}
             </a>
           </div>
         </div>
@@ -98,7 +118,7 @@ const Prefooter: React.FC = () => {
                       n.name,
                     ),
                 )
-                .sort((a,b)=>a.name.localeCompare(b.name))
+                .sort((a, b) => a.name.localeCompare(b.name))
                 .map((num) => (
                   <div key={num.name} className="mb-2 flex space-x-4">
                     <span className="font-medium">{num.name} </span>
