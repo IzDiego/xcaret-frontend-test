@@ -18,6 +18,10 @@ function CurrencySelector({ menuOptions }: ICurrencySelector) {
     dispatch(setCurrency(selectedCurrency));
   };
 
+  if(!menuOptions){
+    return <div>Loading...</div>
+  }
+
   return (
     <div className="relative inline-flex">
       <select
