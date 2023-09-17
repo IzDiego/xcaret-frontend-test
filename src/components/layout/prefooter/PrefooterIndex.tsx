@@ -26,39 +26,39 @@ const Prefooter: React.FC = () => {
   if(!localizedLocales){
     return <div>Loading...</div>
   }
-  
+
   return (
     <div className="max-w-screen-lg mx-auto px-8 bg-gray-900 p-8 text-white">
       <div className="container mx-auto">
         <div className="mb-6 flex justify-between border-b pb-2">
           <h2 className="text-xl font-bold">
-            {texts.customerService[currentLanguage]}
+            {texts?.customerService[currentLanguage]}
           </h2>
           <h2 className="text-xl font-bold">
-            {texts.socialMedia[currentLanguage]}
+            {texts?.socialMedia[currentLanguage]}
           </h2>
         </div>
         <div className="mb-6 flex justify-between">
           <p className="text-sm">
-            {localizedLocales.prefooter.contactCenter.email}
+            {localizedLocales?.prefooter?.contactCenter?.email}
           </p>
           <div className="flex space-x-4">
             <a
-              href={localizedLocales.prefooter.social.facebookUrl}
+              href={localizedLocales?.prefooter?.social?.facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               Facebook
             </a>
             <a
-              href={localizedLocales.prefooter.social.instagramUrl}
+              href={localizedLocales?.prefooter?.social?.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               Instagram
             </a>
             <a
-              href={localizedLocales.prefooter.social.twitterUrl}
+              href={localizedLocales?.prefooter?.social?.twitterUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -68,13 +68,13 @@ const Prefooter: React.FC = () => {
         </div>
         <div className="mb-4 border-b pb-2">
           <h2 className="text-xl font-bold">
-            {texts.contactUs[currentLanguage]}
+            {texts?.contactUs[currentLanguage]}
           </h2>
         </div>
         <div className="flex justify-between">
           <div>
             {["México", "USA-CAN"].map((name) => {
-              const num = localizedLocales.prefooter.numbers.find(
+              const num = localizedLocales?.prefooter?.numbers?.find(
                 (n) => n.name === name,
               );
               return (
@@ -91,7 +91,7 @@ const Prefooter: React.FC = () => {
           </div>
           <div>
             <div className="mb-2 flex flex-wrap space-x-4">
-              {localizedLocales.prefooter.numbers
+              {localizedLocales?.prefooter?.numbers
                 .filter(
                   (n) =>
                     !["México", "USA-CAN", "Rest of the world"].includes(
