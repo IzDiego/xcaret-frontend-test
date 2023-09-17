@@ -15,7 +15,7 @@ function Navbar() {
         <div className="flex items-center justify-between">
           <div>
             <a href="#" className="text-2xl font-bold">
-              <img src={localizedLocales.navbar.logo}></img>
+              <img src={localizedLocales?.navbar?.logo}></img>
             </a>
           </div>
           <div className="flex space-x-4">
