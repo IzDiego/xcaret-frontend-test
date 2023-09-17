@@ -23,7 +23,10 @@ const Prefooter: React.FC = () => {
       en: "CONTACT US",
     },
   };
-
+  if(!localizedLocales){
+    return <div>Loading...</div>
+  }
+  
   return (
     <div className="max-w-screen-lg mx-auto px-8 bg-gray-900 p-8 text-white">
       <div className="container mx-auto">
