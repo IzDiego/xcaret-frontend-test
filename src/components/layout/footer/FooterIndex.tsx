@@ -10,8 +10,8 @@ function Footer() {
   return (
     <footer>
       <div className="mx-auto max-w-screen-lg bg-neutral-200 p-4 px-8 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
-        {localizedLocales.footer.copy}
-        {localizedLocales.footer.links.map((link, index) => (
+        {localizedLocales?.footer?.copy}
+        {localizedLocales?.footer?.links?.map((link, index) => (
           <span key={link.tittle + index}>
             {" · "}
             <a
