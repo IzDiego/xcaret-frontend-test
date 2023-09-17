@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import CarouselCard from "./CarouselCard";
+import { isMobile } from "react-device-detect";
 
 interface CarouselProps {
   title: string;
@@ -11,7 +12,7 @@ interface CarouselProps {
   buttonBook: string;
   autoSlide: boolean;
   autoSlideInterval?: number;
-  imagePromo:string
+  imagePromo: string;
 }
 
 const CarouselWithText: React.FC<CarouselProps> = ({
@@ -22,7 +23,7 @@ const CarouselWithText: React.FC<CarouselProps> = ({
   autoSlide = false,
   buttonBook,
   autoSlideInterval = 3000,
-  imagePromo
+  imagePromo,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -41,6 +42,70 @@ const CarouselWithText: React.FC<CarouselProps> = ({
     return () => clearInterval(slideInterval);
   }, []);
 
+  if (isMobile) {
+    return (
+      <div className="flex flex-col items-center space-y-4">
+        <div className="w-full p-4">
+          <div className={`relative flex-1 p-4`}>
+            <div className="relative h-[500px] w-full overflow-hidden rounded-lg">
+              <div
+                className="flex transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              >
+                {carouselItems.map((slide, index) => (
+                  <div key={index} className="w-full flex-none">
+                    <Image
+                      src={slide}
+                      alt={`Carousel item ${index + 1}`}
+                      width={380}
+                      height={480}
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-between p-4">
+              <button
+                onClick={goPrev}
+                className="absolute left-0 top-1/2 z-10 transform rounded-full bg-black bg-opacity-50 p-2 transition-transform duration-300 hover:scale-105"
+              >
+                <FaArrowLeft className="text-xl text-white" />
+              </button>
+              <button
+                onClick={goNext}
+                className="absolute right-0 top-1/2 z-10 transform rounded-full bg-black bg-opacity-50 p-2 transition-transform duration-300 hover:scale-105"
+              >
+                <FaArrowRight className="text-xl text-white" />
+              </button>
+            </div>
+            <div className="absolute bottom-4 left-0 right-0">
+              <div className="flex items-center justify-center gap-2">
+                {carouselItems.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`mb-4 h-3 w-3 rounded-full bg-white transition-all
+                            ${
+                              currentIndex === index ? "p-2" : "bg-opacity-50"
+                            }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full p-6">
+          <CarouselCard
+            imageSrc={imagePromo}
+            title={title}
+            description={text}
+            action={[buttonBook]}
+            justify="center" // on mobile it's always centered
+          />
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="flex flex-row items-center space-x-4">
       {direction === "left" && (

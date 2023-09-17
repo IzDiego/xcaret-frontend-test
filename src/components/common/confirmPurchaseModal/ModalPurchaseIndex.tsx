@@ -19,8 +19,8 @@ const ModalPurchase: React.FC<IModalPurchaseProps> = ({
   onClose,
   reservationDetails,
 }) => {
-  const currentLanguage = useSelector(selectLanguage);
-  const currentCurrency = useSelector(selectCurrency);
+    const currentLanguage = useSelector(selectLanguage) as Language;
+    const currentCurrency = useSelector(selectCurrency);
 
   const [reservationCode, setReservationCode] = useState<string>("");
   const [conversionRate, setConversionRate] = useState<number>(1);
@@ -28,7 +28,7 @@ const ModalPurchase: React.FC<IModalPurchaseProps> = ({
     reservationDetails.price,
   );
 
-  const texts = {
+  const texts: Record<string, Record<Language, string>> = {
     code: {
       es: "Código de reserva: ",
       en: "Reservation code: ",
@@ -162,3 +162,5 @@ const ModalPurchase: React.FC<IModalPurchaseProps> = ({
 };
 
 export default ModalPurchase;
+
+type Language = 'es' | 'en';

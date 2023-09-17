@@ -5,7 +5,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Please provide a target currency.' });
     }
   
-    const API_KEY = 'f0604747dc17f7aa09c0ffcea1c70d94';
+    const API_KEY = process.env.EXCHANGE_RATE_API_KEY;
     const endpoint = `https://open.er-api.com/v6/latest/MXN?apikey=${API_KEY}`;
   
     try {
