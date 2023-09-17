@@ -53,9 +53,8 @@ export default function Home({ data }: IHomeProps) {
 
   //codigo extra para mostrar mas items
   let promotionsToShow = localizedData.promotions;
-
   if (promotionsToShow.length > 0 && promotionsToShow.length < 3) {
-    const refPromo = promotionsToShow[0];
+    const refPromo = promotionsToShow[0] as IPromotion;
     while (promotionsToShow.length < 3) {
       promotionsToShow = [...promotionsToShow, { ...refPromo }];
     }
@@ -98,4 +97,18 @@ export async function getServerSideProps() {
       data,
     },
   };
+}
+
+interface IButtonPromotion {
+  href: string;
+  text: string;
+}
+
+interface IPromotion {
+  title: string;
+  logoPromo: string;
+  Subtitle: string;
+  paragraphs: string[];
+  button: IButtonPromotion;
+  imagePromo: string;
 }

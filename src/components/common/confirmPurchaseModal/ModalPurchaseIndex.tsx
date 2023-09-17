@@ -28,7 +28,7 @@ const ModalPurchase: React.FC<IModalPurchaseProps> = ({
     reservationDetails.price,
   );
 
-  const texts: Record<string, Record<Language, string>> = {
+  const texts: TextDetails  = {
     code: {
       es: "Código de reserva: ",
       en: "Reservation code: ",
@@ -62,7 +62,7 @@ const ModalPurchase: React.FC<IModalPurchaseProps> = ({
       if (!response.ok) {
         throw new Error("Failed to fetch conversion rate.");
       }
-      const data = await response.json();
+      const data = await response.json() as IRate;
       return data.rate;
     } catch (error) {
       console.error(error);
@@ -164,3 +164,14 @@ const ModalPurchase: React.FC<IModalPurchaseProps> = ({
 export default ModalPurchase;
 
 type Language = 'es' | 'en';
+
+interface TextDetails {
+  code: Record<Language, string>;
+  reservation: Record<Language, string>;
+  reserve: Record<Language, string>;
+  price: Record<Language, string>;
+}
+
+interface IRate {
+  rate: number;
+}
