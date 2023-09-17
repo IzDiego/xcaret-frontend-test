@@ -3,7 +3,7 @@ import { selectLocalizedLocales } from "~/redux/slices/languageSlice";
 function Footer() {
   const localizedLocales = useSelector(selectLocalizedLocales);
 
-  if(localizedLocales){
+  if(!localizedLocales){
     return <div>Loading...</div>
   }
   
