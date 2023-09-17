@@ -20,11 +20,11 @@ function Navbar() {
           </div>
           <div className="flex space-x-4">
             <a href="#" className="text-black rounded px-3 py-2 hover:bg-black hover:text-white">
-              {localizedLocales.navbar.menu.contact.toLocaleUpperCase()}
+              {localizedLocales?.navbar?.menu?.contact.toLocaleUpperCase()}
             </a>
             <LanguageSelector />
             <CurrencySelector
-              menuOptions={localizedLocales.navbar.menu.currency}
+              menuOptions={localizedLocales?.navbar?.menu?.currency}
             />
           </div>
         </div>

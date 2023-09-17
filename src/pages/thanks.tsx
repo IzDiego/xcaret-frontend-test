@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { useSelector, useDispatch } from "react-redux";
-import { selectLanguage, setLanguage } from "../redux/slices/languageSlice";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "../redux/slices/languageSlice";
 import { isMobile } from "react-device-detect";
 import Layout from "~/components/layout/Layout";
 
