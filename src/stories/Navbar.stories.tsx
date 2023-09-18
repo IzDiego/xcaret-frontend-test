@@ -9,8 +9,10 @@ const meta: Meta<typeof Navbar> = {
   title: "Components/layout/Navbar",
   component: Navbar,
   decorators: [
-    (Story, contex) => {
-      createMockStore(contex.args.state.language);
+    (Story, context: { args: StoryContextArgs }) => {
+      if (context.args?.state?.language) {
+        createMockStore(context.args.state.language);
+      }
       return (
         <Providers>
           <Story />
@@ -27,14 +29,14 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const MobileDecorator = (StoryFn) => {
+const MobileDecorator = (StoryFn: () => React.ReactElement) => {
   changeIsMobile(true);
-  return <StoryFn />;
+  return StoryFn();
 };
 
-const DesktopDecorator = (StoryFn) => {
+const DesktopDecorator = (StoryFn: () => React.ReactElement) => {
   changeIsMobile(false);
-  return <StoryFn />;
+  return StoryFn();
 };
 
 export const Default: Story = {
@@ -86,7 +88,7 @@ export const WithMoreCurrencies: Story = {
                 href: "/es/",
               },
               contact: "contact",
-              currency: ["mxn", "usd", "eur", 'cad', 'gbp', 'jpy', 'czk'],
+              currency: ["mxn", "usd", "eur", "cad", "gbp", "jpy", "czk"],
             },
           },
         },
@@ -94,3 +96,9 @@ export const WithMoreCurrencies: Story = {
     },
   },
 };
+
+interface StoryContextArgs {
+  state?: {
+    language?: object | null;
+  };
+}

@@ -1,8 +1,7 @@
 import { setLocales } from "~/redux/slices/languageSlice";
 import { store } from "~/redux/store";
-import { Langs } from "~/entities/langEntity";
-export const createMockStore = (testState?: any) => {
-    console.log(testState,'testState')
+import { type Langs } from "~/entities/langEntity";
+export const createMockStore = (testState?: Partial<Langs>) => {
   if (testState) {
     store.dispatch(setLocales(testState));
   } else {
