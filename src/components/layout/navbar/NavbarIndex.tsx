@@ -8,6 +8,8 @@ import { isMobile } from "react-device-detect";
 import Link from "next/link";
 
 const Navbar = () => {
+  console.log(isMobile,'isMobile navbar');
+
   const localizedLocales = useSelector(selectLocalizedLocales);
   const currentLanguage = useSelector(selectLanguage)
   const [menuOpen, setMenuOpen] = useState(false);

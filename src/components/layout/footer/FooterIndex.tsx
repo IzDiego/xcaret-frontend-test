@@ -3,8 +3,12 @@ import { selectLocalizedLocales } from "~/redux/slices/languageSlice";
 function Footer() {
   const localizedLocales = useSelector(selectLocalizedLocales);
 
-  if (!localizedLocales) {
-    return <div>Loading...</div>;
+  if (!localizedLocales.footer) {
+    return (
+      <footer>
+        <div>Loading...</div>
+      </footer>
+    );
   }
 
   return (
@@ -14,10 +18,7 @@ function Footer() {
         {localizedLocales?.footer?.links?.map((link, index) => (
           <span key={link.tittle + index}>
             {" · "}
-            <a
-              className="text-neutral-800"
-              href={link.href}
-            >
+            <a className="text-neutral-800" href={link.href}>
               {link.tittle}
             </a>
           </span>
